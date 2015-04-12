@@ -1,2 +1,7 @@
-# UofT-Projects
-An assortment of assignments that I completed for courses during my education at the University of Toronto.
+# CSC 207 - Software Design
+
+## Google Scholar Scraper
+	A Java program which extracts information from Google Scholar pages.
+	
+## Java Virtual Shell
+	A Java program which imitates the functionality of a UNIX shell.

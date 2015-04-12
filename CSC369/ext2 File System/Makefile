@@ -38,10 +38,10 @@ test : all reset removetest mount
 
 removetest : 
 	rm -f -r mktest
-	rm -f -r /tmp/g3dakouz-mnt/mnt
+	rm -f -r tmp
 
 unmount : 
-	fusermount -u /tmp/g3dakouz-mnt/mnt
+	fusermount -u tmp
 
 createdirs : 
 	mkdir mktest
@@ -104,6 +104,6 @@ createmore : removefiles_links
 	rm -f mktest/tmpfile
 
 mount : createmore
-	mkdir /tmp/g3dakouz-mnt/mnt
-	fuseext2 -o rw+ twolevel.img /tmp/g3dakouz-mnt/mnt
+	mkdir tmp
+	fuseext2 -o rw+ twolevel.img tmp
 	
