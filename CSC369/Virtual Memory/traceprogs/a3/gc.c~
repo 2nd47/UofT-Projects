@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "gc.h"
+
+//Create global head of linked list
+Mem_chunk *headChunk;
+
+void *lastChunk(*Mem_chunk memChunk);
+
+/* A wrapper around malloc to keep track of dynamically allocated memory
+ */
+void *gc_malloc(int nbytes) {
+	void *objPtr;
+	if (objPtr = malloc(nbytes) == NULL) {
+		perror("malloc");
+		exit(1);
+	}
+	Mem_chunk lastChunkOfStruct = lastChunk(headChunk);
+	lastChunkOfStruct->next = objPtr;
+	return objPtr;
+}
+
+/* Traverse to and return the final chunk in the Mem_chunk structure
+ */
+void *lastChunk(*Mem_chunk memChunk) {
+	if (memChunk->next != NULL) {
+		return lastChunk(memChunk->next);
+	} else {
+		return memChunk;
+}
+
+/* Executes the garbage collector.
+ * mark_obj will traverse the data structure rooted at obj, calling
+ * mark_one for each dynamically allocated chunk of memory to mark
+ * that it is still in use.
+ */
+void mark_and_sweep(void *obj, void (*mark_obj)(void *)) {
+	
+}
+
+/* Mark vptr as still in use
+ * Return code:
+ *   0 on success
+ *   1 if memory chunk pointed to by vptr was already marked as in use
+ */
+int mark_one(void *vptr) {
+	return 0;
+}
